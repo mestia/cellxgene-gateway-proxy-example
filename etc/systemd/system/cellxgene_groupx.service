@@ -1,0 +1,16 @@
+[Unit]
+Description=groupx
+After=systemd-user-sessions.service
+
+[Service]
+User=cellxgeneUser
+WorkingDirectory=/home/cellxgeneUser
+Environment=CELLXGENE_LOCATION=/home/cellxgeneUser/.local/bin/cellxgene
+Environment=CELLXGENE_DATA=/share/cellxgene/groupx
+Environment=GATEWAY_PORT=5006
+Environment=GATEWAY_ENABLE_ANNOTATIONS=1
+ExecStart=/home/cellxgeneUser/.local/bin/cellxgene-gateway
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

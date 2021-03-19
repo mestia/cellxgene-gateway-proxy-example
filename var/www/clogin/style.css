@@ -1,0 +1,48 @@
+.container {
+  padding: 60px;
+}
+
+.login {
+  position: relative;
+  margin: 0 auto;
+  padding: 20px 20px 20px;
+  width: 310px;
+}
+
+.login input[type=text], .login input[type=password] {
+  width: 278px;
+}
+
+
+.login:before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  bottom: -8px;
+  left: -8px;
+  z-index: -1;
+  background: #ffaaff6;
+  border-radius: 5px;
+  border: solid 1px;
+}
+
+.login h1 {
+  margin: -20px -20px 21px;
+  line-height: 40px;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 1px white;
+  color: #00496b;
+  text-shadow: 2px 2px 2px #aaa;
+  border-bottom: 1px solid #cfcfcf;
+  border-radius: 3px 3px 0 0;
+}
+
+.grouplist h3 {
+  text-shadow: 2px 2px 2px #aaa;
+}
+.grouplist li {
+  padding: 5px;
+}
