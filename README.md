@@ -19,8 +19,7 @@
 # cellxgene proxy setup
 
 This setup provides example files and short description for setting up apache2 reverse proxy with 
-authentication based on mod_auth_form (well, basic auth) for cellxgene_gateway processes listening 
-on the current or remote hosts.
+authentication based on mod_auth_form for cellxgene_gateway processes listening on the current or remote hosts.
 
 
 <a id="org70b949b"></a>
@@ -59,7 +58,7 @@ on the current or remote hosts.
 
 -   needs properly defined user and a number of ENV variables.
 -   `<group>` and `<port>` will be updated by the mkcellxgene_config.pl script
--   One might need to call  `systemctl enable cellxgene\_<group>` to make services start on boot
+-   One might need to call  `systemctl enable cellxgene_<group>` to make services start on boot
 
 
 <a id="org90a423a"></a>
@@ -95,9 +94,9 @@ on the current or remote hosts.
 1.  Create the data directory for the new group and set appropirate permissions.
     (see the CELLXGENE_DATA var in the systemd template)
 2.  Update /etc/cellxgene_templates/group_to_port.map
-3.  Call /etc/cellxgene_templates/mkcellxgene_config.pl <group> to setup systemd, apache2 config 
+3.  Call `/etc/cellxgene_templates/mkcellxgene_config.pl <group>` to setup systemd, apache2 config 
     and /var/www/index.html
-4.  Start the new systemd service: service cellxgene\_<group> start
+4.  Start the new systemd service: `service cellxgene_<group> start`
 5.  Reload apache2 config: service apache2 reload
 6.  Navigate to the url and test the application
 7.  Debug errors with `journalctl -xe` and (or) apache2 error log files
