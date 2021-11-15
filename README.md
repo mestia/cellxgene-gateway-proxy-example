@@ -48,7 +48,7 @@ authentication based on mod_auth_form for cellxgene_gateway processes listening 
 
 -   Ldap auth part is optional, this setup is using Openldap and groups with memberUid attribute.
     The <RequireAny/RequireAll> stanza allows users from different groups access only their cellxgene locations. 
-    The group sysop and defined users can access any resourse.
+    The group sysop and defined users can access any resource.
 -   See etc/apache2/sites-available/public.conf for the simplest config without authentication.
 
 
