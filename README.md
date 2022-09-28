@@ -41,9 +41,9 @@ This is configured via cellxgene-gateway variables, such as CELLXGENE_DATA and G
 For multiple groups we have multiple cellxgene-gateway instances listening on different ports and serving different directories.
 So there is a plain mapping between a group and a network port.
 
-Now, if we add a reverse proxy on top of this configuration and create separate configs proxying requests from specific groups to specific
-cellxgene-gateway instances we will have a single interface for all groups.
-Also we can enable authentication for the group URLs and this allows the group based access to the data.
+Now, if we add a reverse proxy on top of this configuration and create separate configs proxying requests from specific group to specific
+cellxgene-gateway instances, we will have a single interface for all groups.
+Also, we can enable authentication for the group URLs and this allows the group based access to the data.
 
 This repostory provides templates and a script which parses the templates and creates config files for cellxgene-gateway and apache2 reverse proxy.
 
