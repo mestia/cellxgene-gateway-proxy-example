@@ -1,6 +1,7 @@
 
 # Table of Contents
 
+0.  [cellxgene proxy backstory](#manualedit0)
 1.  [cellxgene proxy setup](#org8535249)
     1.  [etc/cellxgene_templates](#org70b949b)
         1.  [group_to_port.map defines group to port location](#org2593de5)
@@ -12,6 +13,39 @@
     4.  [cellxgene && cellxgene-gateway](#org0b8bc08)
     5.  [Basic usage](#orgbaa67c6)
     6.  [links](#orga301c60)
+
+
+<a id="manualedit0"></a>
+
+# cellxgene proxy backstory
+
+CZ CELLxGENE is an interactive data explorer for single-cell datasets.
+Leveraging modern web development techniques to enable fast visualizations allowing computational researchers to explore their data.
+
+Cellxgene Gateway allows you to use the Cellxgene Server provided by the Chan Zuckerberg Institute (<https://github.com/chanzuckerberg/cellxgene>) with multiple datasets.
+It displays an index of available h5ad (anndata) files.
+When a user clicks on a file name, it launches a Cellxgene Server instance that loads that particular data file and once it is available proxies requests to that server.
+
+Now imagine, you have a number of groups who would like to use cellxgene on their data.
+
+An obvious solution - different cellxegen-gateway instances. However a better option is to have a single instance with some kind of authentication
+for different datasets/cellgene-gateway instances.
+
+The global picture:
+
+A group has a directory with a number of h5ad files
+
+A cellxgene-gateway instance listening on a specific TCP port serving a specific directory with h5ad files
+This is configured via cellxgene-gateway variables, such as CELLXGENE_DATA and GATEWAY_PORT
+
+For multiple groups we have multiple cellxgene-gateway instances listening on different ports and serving different directories.
+So there is a plain mapping between a group and a network port.
+
+Now, if we add a reverse proxy on top of this configuration and create separate configs proxying requests from specific groups to specific
+cellxgene-gateway instances we will have a single interface for all groups.
+Also we can enable authentication for the group URLs and this allows the group based access to the data.
+
+This repostory provides templates and a script which parses the templates and creates config files for cellxgene-gateway and apache2 reverse proxy.
 
 
 <a id="org8535249"></a>
