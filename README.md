@@ -18,7 +18,7 @@
 
 # cellxgene proxy setup
 
-This setup provides example files and short description for setting up apache2 reverse proxy with 
+This setup provides example files and short description for setting up apache2 reverse proxy with
 authentication based on mod_auth_form for cellxgene_gateway processes listening on the current or remote hosts.
 
 
@@ -47,7 +47,7 @@ authentication based on mod_auth_form for cellxgene_gateway processes listening 
 ### apache2 template
 
 -   Ldap auth part is optional, this setup is using Openldap and groups with memberUid attribute.
-    The <RequireAny/RequireAll> stanza allows users from different groups access only their cellxgene locations. 
+    The <RequireAny/RequireAll> stanza allows users from different groups access only their cellxgene locations.
     The group sysop and defined users can access any resource.
 -   See etc/apache2/sites-available/public.conf for the simplest config without authentication.
 
@@ -94,7 +94,7 @@ authentication based on mod_auth_form for cellxgene_gateway processes listening 
 1.  Create the data directory for the new group and set appropirate permissions.
     (see the CELLXGENE_DATA var in the systemd template)
 2.  Update /etc/cellxgene_templates/group_to_port.map
-3.  Call `/etc/cellxgene_templates/mkcellxgene_config.pl <group>` to setup systemd, apache2 config 
+3.  Call `/etc/cellxgene_templates/mkcellxgene_config.pl <group>` to setup systemd, apache2 config
     and /var/www/index.html
 4.  Start the new systemd service: `service cellxgene_<group> start`
 5.  Reload apache2 config: service apache2 reload
