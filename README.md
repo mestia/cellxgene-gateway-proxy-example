@@ -28,18 +28,15 @@ When a user clicks on a file name, it launches a Cellxgene Server instance that 
 
 Now imagine, you have a number of groups who would like to use cellxgene on their data.
 
-An obvious solution - different cellxegen-gateway instances. However a better option is to have a single instance with some kind of authentication
+An obvious solution - different cellxegen-gateway instances. However, a better option is to have a single instance with some kind of authentication
 for different datasets/cellgene-gateway instances.
 
 The global picture:
 
 A group has a directory with a number of h5ad files.
 
-A cellxgene-gateway instance listening on a specific TCP port serving a specific directory with h5ad files.
+For each group, there is a cellxgene-gateway instance listening on a specific TCP port and serving the group specific directory with h5ad files. So there is a plain mapping between a group, the group directory and a network port.
 This is configured via cellxgene-gateway variables, such as CELLXGENE_DATA and GATEWAY_PORT.
-
-For multiple groups we have multiple cellxgene-gateway instances listening on different ports and serving different directories.
-So there is a plain mapping between a group and a network port.
 
 Now, if we add a reverse proxy on top of this configuration and create separate configs proxying requests from specific group URLs to specific
 cellxgene-gateway instances, we will have a single interface for all groups.
