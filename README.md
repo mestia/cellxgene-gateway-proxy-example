@@ -23,35 +23,37 @@
 CZ CELLxGENE is an interactive data explorer for single-cell datasets.
 Leveraging modern web development techniques to enable fast visualizations allowing computational researchers to explore their data.
 
-Cellxgene Gateway allows you to use the Cellxgene Server provided by the Chan Zuckerberg Institute (<https://github.com/chanzuckerberg/cellxgene>) with multiple datasets.
-It displays an index of available h5ad (anndata) files.
-When a user clicks on a file name, it launches a Cellxgene Server instance that loads that particular data file and once it is available proxies requests to that server.
+The Cellxgene Gateway enables users to utilize the Cellxgene Server offered by the Chan Zuckerberg Institute (<https://github.com/chanzuckerberg/cellxgene>) for multiple datasets.
+It presents an index of accessible h5ad (anndata) files. 
+When a user selects a file, it initiates a Cellxgene Server instance to load the specific data file and subsequently proxies requests to that server.
 
-Now imagine, you have a number of groups who would like to use cellxgene on their data.
 
-An obvious solution - different cellxegen-gateway instances. However, a better option is to have a single instance with some kind of authentication
-for different datasets/cellgene-gateway instances.
+Now imagine a scenario where multiple groups are interested in utilizing Cellxgene on their respective datasets.
 
-The global picture:
+One possible approach is to establish separate instances of cellxgene-gateway for each group.
+However, a more optimal solution would be to have a unified instance that incorporates some form of authentication specifically designed for different datasets/cellgene-gateway instances.
+Cellxgene-gateway proxy serves exatcly this purpose.
 
-A group has a directory with a number of h5ad files.
+The global overview:
 
-For each group, there is a cellxgene-gateway instance listening on a specific TCP port and serving the group specific directory with h5ad files. So there is a plain mapping between a group, the group directory and a network port.
-This is configured via cellxgene-gateway variables, such as CELLXGENE_DATA and GATEWAY_PORT.
+A research group maintains a directory containing multiple h5ad files.
 
-Now, if we add a reverse proxy on top of this configuration and create separate configs proxying requests from specific group URLs to specific
-cellxgene-gateway instances, we will have a single interface for all groups.
-Also, we can enable authentication for the group URLs and this allows the group based access to the data.
+For each group, a cellxgene-gateway instance is in place, which listens on a designated TCP port and serves the specific group directory containing h5ad files.
+Thus, there is a straightforward correspondence between a group, its respective directory, and a network port.
+This arrangement is configured using cellxgene-gateway variables, such as CELLXGENE_DATA and GATEWAY_PORT.
+To enhance this configuration, we can implement a reverse proxy that acts as an intermediary layer.
+By creating separate configurations, we can direct requests originating from specific group URLs to the corresponding cellxgene-gateway instances.
+Ultimately, this approach provides a unified interface for all groups.
+Additionally, we have the option to enable authentication for the group URLs, granting controlled access to the data based on group membership.
 
-This repostory provides templates and a script which parses the templates and creates config files for cellxgene-gateway and apache2 reverse proxy.
-
+This repository offers templates and a scripts. These resources facilitate the creation of configuration files for both the cellxgene-gateway and Apache2 reverse proxy components.
 
 <a id="org8535249"></a>
 
 # cellxgene proxy setup
 
-This setup provides example files and short description for setting up apache2 reverse proxy with
-authentication based on mod_auth_form for cellxgene_gateway processes listening on the current or remote hosts.
+This setup offers sample files and a brief explanation for configuring Apache2 reverse proxy with authentication using mod_auth_form for cellxgene_gateway processes.
+The setup can be implemented for processes running on the current or remote hosts.
 
 
 <a id="org70b949b"></a>
