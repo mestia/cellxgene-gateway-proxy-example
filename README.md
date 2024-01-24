@@ -13,6 +13,7 @@
     4.  [cellxgene && cellxgene-gateway](#org0b8bc08)
     5.  [Basic usage](#orgbaa67c6)
     6.  [links](#orga301c60)
+2.  [Demo](#orga301c61)
 
 
 <a id="manualedit0"></a>
@@ -141,3 +142,9 @@ authentication based on mod_auth_form for cellxgene_gateway processes listening 
 -   cellxgene-gateway: <https://github.com/Novartis/cellxgene-gateway>
 -   mod_auth_form: <https://httpd.apache.org/docs/current/mod/mod_auth_form.html>
 
+
+<a id="orga301c61"></a>
+
+## Demo
+
+Demo setup with Docker: <https://github.com/mestia/cellxgene-proxy-docker-demo>
