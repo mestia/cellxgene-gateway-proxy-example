@@ -53,7 +53,7 @@ This repository offers templates and scripts. These resources facilitate the cre
 # cellxgene proxy setup
 
 This setup offers sample files and a brief explanation for configuring Apache2 reverse proxy with authentication using mod_auth_form for cellxgene_gateway processes.
-The setup can be implemented for processes running on the current or remote hosts.
+The setup can be implemented for processes running on the local or remote hosts.
 
 
 <a id="org70b949b"></a>
