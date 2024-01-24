@@ -46,7 +46,7 @@ By creating separate configurations, we can direct requests originating from spe
 Ultimately, this approach provides a unified interface for all groups.
 Additionally, we have the option to enable authentication for the group URLs, granting controlled access to the data based on group membership.
 
-This repository offers templates and a scripts. These resources facilitate the creation of configuration files for both the cellxgene-gateway and Apache2 reverse proxy components.
+This repository offers templates and scripts. These resources facilitate the creation of configuration files for both the cellxgene-gateway and Apache2 reverse proxy components.
 
 <a id="org8535249"></a>
 
